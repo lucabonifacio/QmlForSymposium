@@ -6,9 +6,8 @@ compiler:
 notifications:
   recipients:
     - luca.bonifacio@bbv.ch
-  email: false
-#    on_success: change
-#    on_failure: always
+  email:
+    on_success: change
 
 # 
 # Needs to install Qt5 before
