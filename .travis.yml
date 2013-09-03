@@ -12,7 +12,7 @@ notifications:
 
 before_install:
  - lsb_release -a
- - sudo apt-add-repository ppa:canonical-qt5-edgers/qt5-proper
+ - sudo apt-add-repository --yes ppa:canonical-qt5-edgers/qt5-proper
  - sudo apt-get update
  - sudo apt-get install qtdeclarative5-dev
 
