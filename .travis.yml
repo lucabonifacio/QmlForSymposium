@@ -34,7 +34,7 @@ before_install:
 
 script:
  - pwd
- - ll
- - cd QmlForSymposium/NoteApp
- - qmlscene NoteApp/NoteApp.qml
+ - ls
+ - cd NoteApp
+ - qmlscene NoteApp.qml
 
