@@ -49,5 +49,5 @@ script:
  - cd NoteApp
 # - Xvfb --server-args="-screen 0 1024x768x24" qmlscene NoteApp.qml
 # - DISPLAY=:99.0 qmlscene NoteApp.qml
- - xvfb-run --server-args="-screen 0 1024x768x24" qmlscene
+ - xvfb-run +extension RANDR --server-args="-screen 0 1024x768x24" qmlscene
 
