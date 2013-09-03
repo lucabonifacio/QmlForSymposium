@@ -12,11 +12,17 @@ Item {
 
     property real ratio: (temperature - minTemperature) / (maxTemperature - minTemperature)
 
+    property string sourcePath: "../images/thermometer_.svg"
+    //property string sourcePath: "../images/Thermometer_green.svg"
+
     antialiasing: true
+
+    //transformOrigin: Item.Bottom
 
     Image {
         id: shape
-        source: "../images/thermometer_.svg"
+        source: sourcePath
+        fillMode: Image.PreserveAspectCrop
 
         LinearGradient {
             anchors.fill: parent
@@ -28,21 +34,33 @@ Item {
                 GradientStop { position: 1.0; color: topColor }
             }
         }
+        visible: false
     }
 
     Image {
         id: mask
-        source: "../images/thermometer_.svg"
+        source: sourcePath
         fillMode: Image.PreserveAspectCrop
-        verticalAlignment: Image.AlignTop
-        height: shape.height * ratio//250
+        //verticalAlignment: Image.AlignTop
+        verticalAlignment: Image.AlignBottom
+        //height: shape.height * ratio
+        height: (shape.height - shape.height * ratio)
         sourceSize: Qt.size(shape.width, shape.height)
-        visible: true
+        visible: false
     }
 
-    /*OpacityMask {
-        anchors.fill: shape
+    Rectangle {
+        width: 20
+        height: shape.height * ratio
+        anchors.left: shape.right
+        anchors.leftMargin: 50
+        anchors.bottom: shape.bottom
+        color: "green"
+    }
+
+    OpacityMask {
+        anchors.fill: mask
         source: shape
         maskSource: mask
-    }*/
+    }
 }

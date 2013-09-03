@@ -19,7 +19,7 @@ Item {
         anchors.topMargin: 20
 
         font.pixelSize: 28
-        text: "Pipe Demo"
+        text: "Pipes Demo"
     }
     Rectangle {
         id: titleLine
@@ -43,32 +43,49 @@ Item {
             anchors.fill: parent
             color: "green"
 
-//            visible: parent.containsDrag
+            visible: parent.containsDrag
         }
     }
 
     // Single pipe element - drag
-    Components.Pipe {
+    /*Components.Pipe {
         id: pipe
         scale: 0.2
         anchors.top: titleLine.bottom
         anchors.topMargin: 50
         anchors.left: parent.left
         anchors.leftMargin: 20
+    }*/
 
-        Drag.active: dragArea.drag.active
-//        Drag.hotSpot.x: 10
-//        Drag.hotSpot.y: 10
+    // Drop grid
+    GridView {
+        id: grid
+        anchors.fill: dropArea
 
-        MouseArea {
-            id: dragArea
-            anchors.fill: parent
-            onClicked: {
-                console.log("dragArea width = "+ dragArea.width)
-            }
+        cellWidth: 50
+        cellHeight: 50
 
-            drag.target: parent
+        //visible: true
+
+        model: Repeater {
+                    }
+
+        delegate: Components.Pipe {
+            id: pipe
+            scale: 0.2
+            anchors.top: titleLine.bottom
+            anchors.topMargin: 50
+            anchors.left: parent.left
+            anchors.leftMargin: 20
         }
+
+        onSwap: {
+            var min = Math.min(slot1, slot2);
+            var max = Math.max(slot1, slot2);
+            grid.model.move(min, max, 1);
+            grid.model.move(max-1, min, 1);
+        }
+
     }
 
 

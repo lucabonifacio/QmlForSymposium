@@ -2,7 +2,6 @@ language: cpp
 
 compiler:
  - gcc
- - clang
 
 notifications:
   recipients:
@@ -10,3 +9,12 @@ notifications:
   email:
     on_success: change
     on_failure: always
+
+#
+# By default Travis CI will run:
+#   ./configure && make && make test
+# to compile your project and run the tests. It is possible to override
+# this behavior by specifying your own install: and script: commands.
+# 
+
+script: "qmlscene NoteApp/NoteApp.qml"

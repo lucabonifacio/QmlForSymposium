@@ -56,7 +56,5 @@ Rectangle {
         to: thermometer.maxTemperature
     }
 
-
-
 }
 

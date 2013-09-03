@@ -13,6 +13,8 @@ Item {
         id: pipeShape
         source: "../pipes/pipe1.svg"
 
+        Drag.active: mouseArea.drag.active
+
         /*LinearGradient {
             anchors.fill: parent
             source: pipeShape
@@ -23,6 +25,14 @@ Item {
                 GradientStop { position: 1.0; color: topColor }
             }
         }*/
+
+        MouseArea {
+            id: mouseArea
+            anchors.fill: parent
+            anchors.centerIn: parent
+
+            drag.target: pipeShape
+        }
 
         ColorOverlay {
             anchors.fill: parent
