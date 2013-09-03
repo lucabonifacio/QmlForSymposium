@@ -14,11 +14,20 @@ notifications:
 # Needs to install Qt5 before
 # 
 before_install:
+ # http://about.travis-ci.org/docs/user/gui-and-headless-browsers/
+ - export DISPLAY=:99.0
+ - sh -e /etc/init.d/xvfb start
+
+ # Print out Ubuntu version and architecture type used in Travis
  - uname -m
  - lsb_release -a
+
+ # Add missing repositories
  - sudo apt-add-repository --yes ppa:canonical-qt5-edgers/qt5-proper
  - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
  - sudo apt-get update -qq
+
+ # Install missing dependencies
  - sudo apt-get install -qq qtdeclarative5-dev qt5-default qtdeclarative5-qtquick2-plugin qtdeclarative5-test-plugin
  - sudo apt-get install -qq qmlscene
  - sudo apt-get install -qq g++-4.8 xvfb
