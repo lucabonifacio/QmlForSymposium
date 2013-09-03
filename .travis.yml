@@ -6,7 +6,7 @@ compiler:
 notifications:
   recipients:
     - luca.bonifacio@bbv.ch
-  email:
+  email: false
     on_success: change
     on_failure: always
 
@@ -50,7 +50,7 @@ script:
 # - Xvfb --server-args="-screen 0 1024x768x24" qmlscene NoteApp.qml
 # - DISPLAY=:99.0 qmlscene NoteApp.qml
 # - xvfb-run --server-args="-screen 0 1024x768x24" qmlscene NoteApp.qml
- - qmlscene NoteApp.qml
+ - qmlscene NoteApp.qml &
  - import -window root example.png
  - ls
 
