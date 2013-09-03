@@ -7,8 +7,8 @@ notifications:
   recipients:
     - luca.bonifacio@bbv.ch
   email: false
-    on_success: change
-    on_failure: always
+#    on_success: change
+#    on_failure: always
 
 # 
 # Needs to install Qt5 before
