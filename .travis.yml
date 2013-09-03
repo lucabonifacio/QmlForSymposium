@@ -56,5 +56,5 @@ script:
  - ls
 
 after_success:
- - mutt -s "Test mail" -a example.png -- luca.bonifacio@bbv.ch
+ - echo "body text" | mutt -s "Test mail" -a example.png -- luca.bonifacio@bbv.ch
 
