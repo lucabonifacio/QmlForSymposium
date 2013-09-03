@@ -11,6 +11,7 @@ notifications:
     on_failure: always
 
 before_install:
+ - sudo apt-get install ubuntu-sdk
  - sudo apt-get install qmlscene
 
 #
