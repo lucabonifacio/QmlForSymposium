@@ -14,6 +14,7 @@ notifications:
 # Needs to install Qt5 before
 # 
 before_install:
+ - uname -m
  - lsb_release -a
  - sudo apt-add-repository --yes ppa:canonical-qt5-edgers/qt5-proper
  - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
@@ -32,5 +33,6 @@ before_install:
 # 
 
 script:
- - cd NoteApp
+ - cd QmlForSymposium/NoteApp
  - qmlscene NoteApp/NoteApp.qml
+
