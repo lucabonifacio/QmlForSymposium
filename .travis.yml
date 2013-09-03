@@ -1,0 +1,12 @@
+language: cpp
+
+compiler:
+ - gcc
+ - clang
+
+notifications:
+  recipients:
+    - luca.bonifacio@bbv.ch
+  email:
+    on_success: change
+    on_failure: always
