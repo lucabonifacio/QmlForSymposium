@@ -10,6 +10,9 @@ notifications:
     on_success: change
     on_failure: always
 
+before_install:
+ - sudo apt-get install qmlscene
+
 #
 # By default Travis CI will run:
 #   ./configure && make && make test
