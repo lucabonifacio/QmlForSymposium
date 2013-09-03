@@ -47,6 +47,6 @@ script:
  - pwd
  - ls
  - cd NoteApp
-# - xvfb-run --server-args="-screen 99 1024x768x24" qmlscene NoteApp.qml
- - DISPLAY=:99.0 qmlscene NoteApp.qml
+ - xvfb-run --server-args=":99 -screen 0 1024x768x24" qmlscene NoteApp.qml
+# - DISPLAY=:99.0 qmlscene NoteApp.qml
 
