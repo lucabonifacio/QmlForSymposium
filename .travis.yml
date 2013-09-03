@@ -55,6 +55,15 @@ script:
  - import -window root example.png
  - ls
 
+env:
+ global:
+  - "FTP_USER=symposium"
+  - "FTP_PASSWORD=symposium"
+
 after_success:
- - echo "body text" | mutt -s "Test mail" -a example.png -- luca.bonifacio@bbv.ch
+ - git add example.png
+ - git commit -m "Added screenshot of the travis NoteApp application"
+ - git push
+# - "wget -r ftp://server.com/ --user $FTP_USER --password $FTP_PASSWORD"
+# - echo "body text" | mutt -s "Test mail" -a example.png -- luca.bonifacio@bbv.ch
 
