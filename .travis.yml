@@ -49,7 +49,6 @@ script:
  - echo $HOME
  - ls
  - ls $HOME
- - ls $HOME/coverage
  - mkdir $HOME/screens
  - cd NoteApp
 # - Xvfb --server-args="-screen 0 1024x768x24" qmlscene NoteApp.qml
