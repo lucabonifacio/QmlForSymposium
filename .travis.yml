@@ -45,6 +45,7 @@ before_install:
 # 
 
 script:
+ - xwininfo -root -tree
  - pwd
  - echo $HOME
  - ls
