@@ -1,5 +1,7 @@
+#!/bin/sh
+
 if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-echo -e "Starting to update gh-pages\n"
+  echo -e "Starting to update gh-pages\n"
 
   cd $HOME/build/lucab0ni/QmlForSymposium
   ls
@@ -18,5 +20,5 @@ echo -e "Starting to update gh-pages\n"
 
   echo -e "Done magic with coverage\n"
 else
-echo -e "Cannot start update gh-pages\n"
+  echo -e "Cannot start update gh-pages\n"
 fi
