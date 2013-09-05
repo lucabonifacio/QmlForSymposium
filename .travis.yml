@@ -80,5 +80,6 @@ script:
  - cd $TRAVIS_BUILD_DIR
 
 after_success:
+ - coveralls -e /usr/include
  - bash .utility/update-gh-pages.sh
 
