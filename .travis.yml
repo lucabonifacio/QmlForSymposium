@@ -52,18 +52,14 @@ script:
 # - DISPLAY=:99.0 qmlscene NoteApp.qml
 # - xvfb-run --server-args="-screen 0 1024x768x24" qmlscene NoteApp.qml
  - qmlscene NoteApp.qml &
- - import -window root example.png
+ - import -window root coverage/example.png
  - ls
 
 env:
  global:
-  - "FTP_USER=symposium"
-  - "FTP_PASSWORD=symposium"
+  - secure: pMnt4BCa57AMt701QnWuOFcDdRAU8ewWwSM2FC6Ggur/K3EvKk4OTXSxr41/x1K9hEHHMCpbe3STf4G3Cl1hn24NSmqDN98SVCSrNVsRx5IX1ng2Ggx09PvK/qaUM/zOxEQPlq8iXyT3o9ZmIgyDS5FM+e9pJk+Vg6kJgJFRXag=
+  - secure: nGHkZMWK/vTwb+FP3mo1pxX/mN08ivIQQ6b2g+RqPuMlAmPcBtR1FaQogi2/zkD8jwLlKhwPECTzEQ9yh2moaTOP6GjZzlfE0iD6zs5xQFZBhFFv+PadCRlE1xnUSFStuAXurULbNF3jyItxzNIunt4r06rqMvOlmvN0d+qRong=
 
 after_success:
- - git add example.png
- - git commit -m "Added screenshot of the travis NoteApp application"
- - git push
-# - "wget -r ftp://server.com/ --user $FTP_USER --password $FTP_PASSWORD"
-# - echo "body text" | mutt -s "Test mail" -a example.png -- luca.bonifacio@bbv.ch
+ - .utility/update-gh-pages.sh
 
