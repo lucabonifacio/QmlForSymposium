@@ -53,13 +53,10 @@ script:
 # - DISPLAY=:99.0 qmlscene NoteApp.qml
 # - xvfb-run --server-args="-screen 0 1024x768x24" qmlscene NoteApp.qml
  - DISPLAY=:99 qmlscene NoteApp.qml &
- - import -window root $HOME/screens/screenshot.png
- - ls
+ - import -window root $HOME/screens/screenshot_$TRAVIS_BUILD_NUMBER.png
  - cd $HOME/build/lucab0ni/QmlForSymposium
- - pwd
- - ls -la
  - DISPLAY=:99 firefox http://www.gregorymazurek.com &
- - DISPLAY=:99 import -window root $HOME/screens/firefox.png
+ - DISPLAY=:99 import -window root $HOME/screens/firefox_$TRAVIS_BUILD_NUMBER.png
 
 env:
  global:
