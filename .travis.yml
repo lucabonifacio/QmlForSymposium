@@ -7,7 +7,7 @@ notifications:
   recipients:
     - luca.bonifacio@bbv.ch
   email:
-    on_success: always
+    on_success: changed
     on_failure: always
 
 env:
@@ -39,10 +39,10 @@ env:
 #======================================================================================================================
 before_install:
  # http://about.travis-ci.org/docs/user/gui-and-headless-browsers/
- - "export DISPLAY=:99.0"
- - "sh -e /etc/init.d/xvfb start"
- - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x24"
- - sleep 3 # give xvfb some time to start
+ - export DISPLAY=:99.0
+ - sh -e /etc/init.d/xvfb start
+ - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x24
+ - sleep 3	# give xvfb some time to start
  - xwininfo -root
 
  # Print out Ubuntu version and architecture type used in Travis
@@ -73,13 +73,10 @@ before_install:
 #======================================================================================================================
 
 script:
- - xwininfo -root
  - mkdir $HOME/screens
  - cd NoteApp
-# - /usr/bin/Xvfb --server-args="-screen 0 1024x768x24" qmlscene NoteApp.qml
-# - Xvfb-run --server-args="-screen 0 1024x768x24" qmlscene NoteApp.qml &
  - DISPLAY=:99 qmlscene NoteApp.qml &
- - sleep 3
+ - sleep 3	# give the application time to start
  - import -window root $HOME/screens/screenshot_$TRAVIS_BUILD_NUMBER.png
  - cd $HOME/build/lucab0ni/QmlForSymposium
 
