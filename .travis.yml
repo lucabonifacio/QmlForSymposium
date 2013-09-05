@@ -64,5 +64,6 @@ env:
   - secure: nGHkZMWK/vTwb+FP3mo1pxX/mN08ivIQQ6b2g+RqPuMlAmPcBtR1FaQogi2/zkD8jwLlKhwPECTzEQ9yh2moaTOP6GjZzlfE0iD6zs5xQFZBhFFv+PadCRlE1xnUSFStuAXurULbNF3jyItxzNIunt4r06rqMvOlmvN0d+qRong=
 
 after_success:
+ - cd $HOME/build/lucab0ni/QmlForSymposium
  - .utility/update-gh-pages.sh
 
