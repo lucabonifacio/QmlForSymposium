@@ -76,15 +76,12 @@ script:
  - xwininfo -root
  - mkdir $HOME/screens
  - cd NoteApp
-# - Xvfb --server-args="-screen 0 1024x768x24" qmlscene NoteApp.qml
-# - DISPLAY=:99.0 qmlscene NoteApp.qml
+ - /usr/bin/Xvfb --server-args="-screen 0 1024x768x24" qmlscene NoteApp.qml
 # - Xvfb-run --server-args="-screen 0 1024x768x24" qmlscene NoteApp.qml &
- - DISPLAY=:99 qmlscene NoteApp.qml &
+# - DISPLAY=:99 qmlscene NoteApp.qml &
  - sleep 3
  - import -window root $HOME/screens/screenshot_$TRAVIS_BUILD_NUMBER.png
  - cd $HOME/build/lucab0ni/QmlForSymposium
- - DISPLAY=:99 firefox http://www.gregorymazurek.com &
- - DISPLAY=:99 import -window root $HOME/screens/firefox_$TRAVIS_BUILD_NUMBER.png
 
 after_success:
  - bash .utility/update-gh-pages.sh
