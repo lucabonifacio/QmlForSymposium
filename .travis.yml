@@ -59,7 +59,7 @@ script:
  - ls
  - cd $HOME/build/lucab0ni/QmlForSymposium
  - pwd
- - ls
+ - ls -a
 
 env:
  global:
