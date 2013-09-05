@@ -10,9 +10,33 @@ notifications:
     on_success: always
     on_failure: always
 
-# 
+env:
+ global:
+  - secure: pMnt4BCa57AMt701QnWuOFcDdRAU8ewWwSM2FC6Ggur/K3EvKk4OTXSxr41/x1K9hEHHMCpbe3STf4G3Cl1hn24NSmqDN98SVCSrNVsRx5IX1ng2Ggx09PvK/qaUM/zOxEQPlq8iXyT3o9ZmIgyDS5FM+e9pJk+Vg6kJgJFRXag=
+  - secure: nGHkZMWK/vTwb+FP3mo1pxX/mN08ivIQQ6b2g+RqPuMlAmPcBtR1FaQogi2/zkD8jwLlKhwPECTzEQ9yh2moaTOP6GjZzlfE0iD6zs5xQFZBhFFv+PadCRlE1xnUSFStuAXurULbNF3jyItxzNIunt4r06rqMvOlmvN0d+qRong=
+
+
+#======================================================================================================================
+# Build Lifecycle #
+#
+# By default, the worker performs the build as following:
+#
+#    1. Switch language runtime (for example, to Ruby 1.9.3 or PHP 5.4)
+#    2. Clone project repository from GitHub
+#    3. Run before_install scripts (if any)
+#    4. cd to the clone directory, run dependencies installation command (default specific to project language)
+#    5. Run before_script scripts (if any)
+#    6. Run test script command (mandatory). It must use exit code 0 on success and any code on failure.
+#    7. Run after_success/after_failure scripts (if any)
+#    8. Run after_script scripts (if any)
+#
+#======================================================================================================================
+
+
+#======================================================================================================================
 # Needs to install Qt5 before
 # 
+#======================================================================================================================
 before_install:
  # http://about.travis-ci.org/docs/user/gui-and-headless-browsers/
  - "export DISPLAY=:99.0"
@@ -39,15 +63,16 @@ before_install:
  - sudo update-alternatives --set gcc /usr/bin/gcc-4.8
  - sudo pip install cpp-coveralls --use-mirrors
 
-#
+
+#======================================================================================================================
 # By default Travis CI will run:
 #   ./configure && make && make test
 # to compile your project and run the tests. It is possible to override
 # this behavior by specifying your own install: and script: commands.
 # 
+#======================================================================================================================
 
-#script:
-after_install:
+script:
  - xwininfo -root
  - mkdir $HOME/screens
  - cd NoteApp
@@ -59,11 +84,6 @@ after_install:
  - cd $HOME/build/lucab0ni/QmlForSymposium
  - DISPLAY=:99 firefox http://www.gregorymazurek.com &
  - DISPLAY=:99 import -window root $HOME/screens/firefox_$TRAVIS_BUILD_NUMBER.png
-
-env:
- global:
-  - secure: pMnt4BCa57AMt701QnWuOFcDdRAU8ewWwSM2FC6Ggur/K3EvKk4OTXSxr41/x1K9hEHHMCpbe3STf4G3Cl1hn24NSmqDN98SVCSrNVsRx5IX1ng2Ggx09PvK/qaUM/zOxEQPlq8iXyT3o9ZmIgyDS5FM+e9pJk+Vg6kJgJFRXag=
-  - secure: nGHkZMWK/vTwb+FP3mo1pxX/mN08ivIQQ6b2g+RqPuMlAmPcBtR1FaQogi2/zkD8jwLlKhwPECTzEQ9yh2moaTOP6GjZzlfE0iD6zs5xQFZBhFFv+PadCRlE1xnUSFStuAXurULbNF3jyItxzNIunt4r06rqMvOlmvN0d+qRong=
 
 after_success:
  - bash .utility/update-gh-pages.sh
