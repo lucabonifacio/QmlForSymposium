@@ -65,6 +65,7 @@ env:
 
 after_success:
  - cd $HOME/build/lucab0ni/QmlForSymposium
+ - pwd
  - ls
  - .utility/update-gh-pages.sh
 
