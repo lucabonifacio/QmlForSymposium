@@ -50,12 +50,13 @@ script:
  - ls
  - ls $HOME
  - ls $HOME/coverage
+ - mkdir $HOME/screens
  - cd NoteApp
 # - Xvfb --server-args="-screen 0 1024x768x24" qmlscene NoteApp.qml
 # - DISPLAY=:99.0 qmlscene NoteApp.qml
 # - xvfb-run --server-args="-screen 0 1024x768x24" qmlscene NoteApp.qml
  - qmlscene NoteApp.qml &
- - import -window root example.png
+ - import -window root $HOME/screens/screenshot.png
  - ls
 
 env:
