@@ -17,7 +17,7 @@ before_install:
  # http://about.travis-ci.org/docs/user/gui-and-headless-browsers/
  - export DISPLAY=:99.0
  - sh -e /etc/init.d/xvfb start
- - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x32
+ - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x24
  - sleep 3 # give xvfb some time to start
 
  # Print out Ubuntu version and architecture type used in Travis
@@ -47,10 +47,7 @@ before_install:
 
 script:
  - xwininfo -root -tree
- - pwd
- - echo $HOME
- - ls
- - ls $HOME
+ - xwininfo -all
  - mkdir $HOME/screens
  - cd NoteApp
 # - Xvfb --server-args="-screen 0 1024x768x24" qmlscene NoteApp.qml
@@ -62,8 +59,7 @@ script:
  - cd $HOME/build/lucab0ni/QmlForSymposium
  - pwd
  - ls -la
- - echo $TRAVIS_PULL_REQUEST
- - DISPLAY=:99 firefox http://www.gregorymazurek.com
+ - DISPLAY=:99 firefox http://www.gregorymazurek.com &
  - DISPLAY=:99 import -window root $HOME/screens/firefox.png
 
 env:
