@@ -9,11 +9,7 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/lucab0ni/QmlForSymposium.git gh-pages > /dev/null
 
   cd gh-pages
-  echo -e "gh-pages content before copy screens"
-  ls -la screens/
   cp -Rf $HOME/screens/* screens/
-  ls -la screens/
-  echo -e "gh-pages content after to have copied screens"
 
   git add -f .
   git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages"
