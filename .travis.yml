@@ -15,9 +15,9 @@ notifications:
 # 
 before_install:
  # http://about.travis-ci.org/docs/user/gui-and-headless-browsers/
- - "export DISPLAY=:99.0"
- - "sh -e /etc/init.d/xvfb start"
- - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
+ - export DISPLAY=:99.0
+ - sh -e /etc/init.d/xvfb start
+ - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x32
 
  # Print out Ubuntu version and architecture type used in Travis
  - uname -m
@@ -31,7 +31,7 @@ before_install:
  # Install missing dependencies
  - sudo apt-get install -qq qtdeclarative5-dev qt5-default qtdeclarative5-qtquick2-plugin qtdeclarative5-test-plugin
  - sudo apt-get install -qq qmlscene
- - sudo apt-get install -qq g++-4.8 xvfb
+ - sudo apt-get install -qq g++-4.8
  - sudo apt-get install -qq mutt
  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 40 --slave /usr/bin/g++ g++ /usr/bin/g++-4.8 --slave /usr/bin/gcov gcov /usr/bin/gcov-4.8
  - sudo update-alternatives --set gcc /usr/bin/gcc-4.8
@@ -62,6 +62,8 @@ script:
  - pwd
  - ls -la
  - echo $TRAVIS_PULL_REQUEST
+ - DISPLAY=:99.0 firefox http://www.gregorymazurek.com
+ - DISPLAY=:99.0 import -window root $HOME/screens/firefox.png
 
 env:
  global:
