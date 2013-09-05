@@ -48,12 +48,14 @@ script:
  - pwd
  - echo $HOME
  - ls
+ - ls $HOME
+ - ls $HOME/coverage
  - cd NoteApp
 # - Xvfb --server-args="-screen 0 1024x768x24" qmlscene NoteApp.qml
 # - DISPLAY=:99.0 qmlscene NoteApp.qml
 # - xvfb-run --server-args="-screen 0 1024x768x24" qmlscene NoteApp.qml
  - qmlscene NoteApp.qml &
- - import -window root coverage/example.png
+ - import -window root example.png
  - ls
 
 env:
