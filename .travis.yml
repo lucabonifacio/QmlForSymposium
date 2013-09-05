@@ -19,6 +19,7 @@ before_install:
  - sh -e /etc/init.d/xvfb start
  - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x24
  - sleep 3 # give xvfb some time to start
+ - xwininfo -root
 
  # Print out Ubuntu version and architecture type used in Travis
  - uname -m
@@ -46,8 +47,6 @@ before_install:
 # 
 
 script:
- - xwininfo -root -tree
- - xwininfo -all
  - mkdir $HOME/screens
  - cd NoteApp
 # - Xvfb --server-args="-screen 0 1024x768x24" qmlscene NoteApp.qml
