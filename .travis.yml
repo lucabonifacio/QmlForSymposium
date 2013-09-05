@@ -60,6 +60,8 @@ script:
  - cd $HOME/build/lucab0ni/QmlForSymposium
  - pwd
  - ls -a
+ - echo $TRAVIS_PULL_REQUEST
+ - cat $HOME/build.sh
 
 env:
  global:
