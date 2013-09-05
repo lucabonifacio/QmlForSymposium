@@ -46,6 +46,7 @@ before_install:
 
 script:
  - pwd
+ - echo $HOME
  - ls
  - cd NoteApp
 # - Xvfb --server-args="-screen 0 1024x768x24" qmlscene NoteApp.qml
