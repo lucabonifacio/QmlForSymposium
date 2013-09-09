@@ -11,4 +11,4 @@ Travis status
 
 Corevall status (invalid link)
 ---------------
-[![Coverage Status](https://coveralls.io/repos/PlayNetwork/mongoose-middleware/badge.png)](https://coveralls.io/r/PlayNetwork/mongoose-middleware)
+[![Coverage Status](https://coveralls.io/repos/lucab0ni/qt-workshop/badge.png)](https://coveralls.io/r/lucab0ni/qt-workshop)
