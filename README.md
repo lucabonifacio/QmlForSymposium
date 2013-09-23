@@ -45,3 +45,8 @@ QmlForSymposium
 - [Image](http://qt-project.org/doc/qt-5.0/qtquick/qml-qtquick2-image.html)
 - [Column](http://qt-project.org/doc/qt-5.0/qtquick/qml-qtquick2-column.html)
 - [Repeater](http://qt-project.org/doc/qt-5.0/qtquick/qml-qtquick2-repeater.html)
+
+===========================
+
+###Sharing Travis-CI generated files with GitHub
+[HowTo](http://sleepycoders.blogspot.ch/2013/03/sharing-travis-ci-generated-files.html)
