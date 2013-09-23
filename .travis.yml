@@ -74,7 +74,7 @@ before_install:
 script:
  - mkdir $HOME/screens
  - cd NoteApp/qml
- - DISPLAY=:99 qmlscene NoteApp.qml &
+ - DISPLAY=:99 qmlscene NoteApp_Symposium/NoteApp_Symposium.qml &
  - sleep 3	# give the application some time to start
  - import -window root $HOME/screens/screenshot_$TRAVIS_BUILD_NUMBER.png
  - cd $TRAVIS_BUILD_DIR
