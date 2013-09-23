@@ -1,0 +1,110 @@
+Live NoteApp development with Qt Creator
+
+Intro
+	=> Qt Quick
+	=> qmlscene
+	
+1. Start to implement and prototype
+	=> Create first components
+		- Note
+		- Page
+		- Marker
+		- NoteToolbar
+
+	=> Use of Rectangle type overall when possible while prototyping
+	
+	a. NoteToolbar				width: 100; height: 62;  color: "#9e964a"
+	b. Note + NoteToolbar		width: 200; height: 200; color: "#cabf1b"
+	c. Page + 2 Note items		width: 600; height: 400; color: "#222525"
+		=> Use Design mode to place two Note components
+	
+	d. Marker					width: 50; height: 90;   color: "#0a7bfb"
+	
+	=> Using of Column, Repeater and delegate to create a list of Markers
+	e. MarkerPanel				width: 50; height: 300
+	
+	=> Finalize the Prototype
+	f. NoteApp
+		a. NoteApp + toolbar
+		b. NoteApp + toolbar MarkerPanel + Page
+		
+	=> Makes Note components draggable
+	a. Modify NoteToolbar
+	b. Bind drag.target property of MouseArea with Note component's id*
+		=> Modify Note
+		
+	=> The prototype is ready
+	
+2. Adding functionality
+	=> Using the Item type
+		
+			=> Switch to the presentation and show slide: Implementation of PagePanel
+	
+	=> Using States
+		=> Main difference between PagePanel and MarkerPanel
+			- PagePanel one Page at time. This depends from which Marker the user clicks on.
+			- MarkerPanel all Marker are always visible.
+			
+		=> PagePanel will have 3 states and each of them is bound to make one Page visible
+		a. Change Page to Item
+		b. Set opacity to 0.0 as default value
+			
+		c. Modify PagePanel
+			a. Change to Item type
+			b. Create the three pages personalpage, funpage and workpage
+			c. Create list of states
+			
+	=> Binding Marker item with the Page item to enable page navigation
+	
+		=> Switch to the presentation and show slide: Implementation of markerPanel
+	
+	a. Modify MarkerPanel
+		a. Change to Item type
+		b. Add string property activeMarker with default value "personal"
+		c. Define a model to store the markerid values and use it in the Repeater
+		
+	b. Add clicked() signal to Marker to get notified when the user performs a mouse click on the marker item
+		a. Change to Item type
+		b. Add MouseArea that fill the entire parent and forward clicked event
+		
+	c. Add bounding between MarkerPanel and PagePanel
+		a. Modify PagePanel in NoteApp
+		
+	=> Now we are able to navigate through the pages
+	
+3. Implementing the UI
+	=> Setting background images to components
+		=> BorderImage type is recommended to be used in cases where you would like to have the image scaled, but keep its border as is.
+		=> Note: define backgrounds always at the beginning of the QML file; order within the component implementation defines the appearance order.
+	
+	a. Modify PagePanel and add BorderImage for the background
+	b. Modify Note and  add BorderImage for the background
+	
+	c. Extend markerData in MarkerPanel to store also the background of the markers
+		a. Change Marker to Image type
+		b. Extend markerData in MarkerPanel
+		c. Modify Repeater in MarkerPanel and set the source of the Marker
+		
+		=> Run qmlscene for MarkerPanel
+		
+	d. Creating the Tool component used to create a New Note and Clear All notes
+		a. Based on Image
+		b. Define clicked() signal
+		c. Add MouseArea that fill the entire parent and forward clicked events
+		
+	e. Modify NoteApp and replace Rectangle used in the toolbar with the new Tool
+		a. Define newNoteTool; source: "images/add.png"
+		b. Define clearTool; source: "images/clear.png"
+	
+	=> Run qmlscene for NoteApp
+	
+4. Managing Note objects dynamically
+	=> Create and manage Note items
+	
+
+
+
+
+
+
+
