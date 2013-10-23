@@ -15,7 +15,7 @@ QmlForSymposium
 - [Source Code](http://download.qt-project.org/learning/developerguides/qtquickdesktop/notezapp_src.zip)
 
 ####Other very interesting guides
-- [Qt eveloper Guides](http://qt-project.org/wiki/Developer-Guides/)
+- [Qt Developer Guides](http://qt-project.org/wiki/Developer-Guides/)
 
 ===================
 
